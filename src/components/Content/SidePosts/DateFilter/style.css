@@ -1,6 +1,7 @@
 ul.filter li:hover{
     background-color: #d2d6db;
     border-radius: 5px;
+    color: #4749DF ;
 }
 
 ul.filter li.active{

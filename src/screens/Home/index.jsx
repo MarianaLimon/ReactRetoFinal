@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import Content from "../../components/Content/SideBarLeft";
 import Posts from "../../components/Content/SidePosts";
 import AsideCards from "../../components/Content/SideBarRight";
+import DateFilter from "../../components/Content/SidePosts/DateFilter";
 
 // Services
 import { getPosts } from "../../services";
@@ -38,6 +39,7 @@ export default function Home() {
             <Content />
           </div>
           <div className="col-12 col-md-8 col-lg-7">
+            <DateFilter />
             <Posts
               data={Object.entries(data).length ? Object.entries(data) : []}
             />

@@ -3,8 +3,6 @@ import React from "react";
 import { useHistory } from "react-router";
 
 import Post from "./Post";
-import DateFilter from "./DateFilter";
-import Styles from "./index.module.css";
 
 export default function Content(props) {
   const history = useHistory();
@@ -28,7 +26,6 @@ export default function Content(props) {
   ) => {
     return (
       <React.Fragment key={index}>
-        <DateFilter />
         <Post
           id={id}
           content={content}
