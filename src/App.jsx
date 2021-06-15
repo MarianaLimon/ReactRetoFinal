@@ -10,6 +10,10 @@ import UpdatePost from "./screens/UpdatePost";
 import Login from "./screens/Login";
 import CreateAccount from "./screens/CreateAccount";
 
+//App.js
+import './js/loader.js'
+
+
 class App extends React.Component {
   render() {
     return (

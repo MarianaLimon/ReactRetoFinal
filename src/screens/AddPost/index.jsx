@@ -9,6 +9,8 @@ import CustomTextarea from "../../components/CustomTextarea";
 
 import Styles from "./index.module.css"
 
+import $ from 'jquery';
+
 // Services
 import { postPost } from "../../services";
 
@@ -43,6 +45,32 @@ export default function AddPost(props) {
     }
   };
 
+
+  $('#Image').hover(function() {
+    $(".tooltip-image").fadeIn(300);
+  }, function() {
+    $(".tooltip-image").fadeOut(300);
+  })
+
+  $('#textarea').hover(function() {
+    $(".tooltip-title").fadeIn(300);
+  }, function() {
+    $(".tooltip-title").fadeOut(300);
+  })
+
+  $('#tags').hover(function() {
+    $(".tooltip-tags").fadeIn(300);
+  }, function() {
+    $(".tooltip-tags").fadeOut(300);
+  })
+
+  $('#Description').hover(function() {
+    $(".tooltip-content").fadeIn(300);
+  }, function() {
+    $(".tooltip-content").fadeOut(300);
+  })
+
+
   return (
     <React.Fragment>
       <Header />
@@ -51,14 +79,14 @@ export default function AddPost(props) {
 
           {/* Form Section */}
 
-          <div className="col-12 col-md-8 w-100 bg-white1 p-3 my-md-4 shadow-sm rounded" id="form-wrapper">
+          <div className="col-12 col-md-8 p-3 my-md-4 shadow-sm rounded" id="form-wrapper">
             <form
               onSubmit={handleSubmit}
               id="form-new-post"
               className={`m-3 p-3 text-muted ${Styles.FormNewPost}`}
             >
               <h1 className="m-3 p-3 text-muted">Add New Post</h1>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-12">
                 <CustomTextarea
                   style="new-post-title"
                   id="textarea"
@@ -67,7 +95,7 @@ export default function AddPost(props) {
                   callback={setTitle}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-12">
                 <CustomTextarea
                   style="input-add-post"
                   id="tags"
@@ -78,7 +106,7 @@ export default function AddPost(props) {
                 />
               </div>
 
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-12">
                 <CustomTextarea
                   style="input-add-post"
                   id="Image"
@@ -87,7 +115,7 @@ export default function AddPost(props) {
                   callback={setCoverUrl}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-12">
                 <CustomTextarea
                   style="input-add-post"
                   id="Description"
@@ -106,7 +134,7 @@ export default function AddPost(props) {
 
           {/* Tooltip Section */}
 
-          <div className={`col-12 col-md-4 ${Styles.TooltipWrapper}`}>
+          <div className={`d-none d-md-block col-12 col-md-4 ${Styles.TooltipWrapper}`}>
 
             <div  className={`${Styles.TooltipMod} tooltip-image center`}>
                 <h4 className="mb-2 fs-l">Choose the correct image</h4>
@@ -148,6 +176,7 @@ export default function AddPost(props) {
             </div>
           </div>
         </div>
+        
       </div>
       <AppLoading />
     </React.Fragment>
