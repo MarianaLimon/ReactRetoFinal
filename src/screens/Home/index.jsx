@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 
 import AppLoading from "../../components/AppLoading";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Content from "../../components/Content/SideBarLeft";
 import Posts from "../../components/Content/SidePosts";
 import AsideCards from "../../components/Content/SideBarRight";
@@ -54,6 +55,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
       <AppLoading />
     </React.Fragment>
   );
