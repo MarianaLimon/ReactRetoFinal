@@ -72,7 +72,7 @@ function Post() {
       {posts.map(
         ({title, articleImg, author, authorImg, date, reactions, comments, read}, index) => (
           
-          <li className={`card ${Styles.CardContainer}`} key={index}>
+          <li className={`card p-0 ${Styles.CardContainer}`} key={index}>
 
             {/* Imagen del Post */}
             <div className={`${Styles.ArticleImg}`}>
@@ -137,9 +137,9 @@ function Post() {
   ));
 
   return (
-    <div className="container">
-      <div className="row">{postsUI}</div>
-    </div>
+
+      <div>{postsUI}</div>
+
   );
 }
 
