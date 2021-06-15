@@ -1,14 +1,14 @@
 // URL Base
-const API_URL = "https://react-11g-default-rtdb.firebaseio.com/";
+const API_URL = "http://localhost:8080";
 
 // Endpoints
-const postURL = `${API_URL}/posts/.json`;
-const postDetailURL = (id) => `${API_URL}/posts/${id}/.json`;
+const postURL = `${API_URL}/posts/`;
+const postDetailURL = (id) => `${API_URL}/posts/${id}/`;
 
 
 
 // Requests login
-const loginURL = `${API_URL}/login/.json`;
+const loginURL = `${API_URL}/login/`;
 
 export const postUser = async (data) => {
     const response = await fetch(loginURL, {
@@ -36,7 +36,9 @@ export const getPostDetail = async (id) => {
 export const getPosts = async () => {
   try {
     const response = await fetch(postURL);
-    return await response.json();
+    const allPost = await response.json();
+    console.log(allPost.data);
+    return allPost.data.posts;
   } catch (error) {
     console.log(error);
   }
