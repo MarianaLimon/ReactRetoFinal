@@ -9,6 +9,7 @@ const postDetailURL = (id) => `${API_URL}/posts/${id}/`;
 
 // Requests user
 const usersURL = `${API_URL}/users/`;
+const userDetailURL = (id) => `${API_URL}/users/${id}/`;
 
 export const postUser = async (data) => {
     const response = await fetch(usersURL, {
@@ -70,4 +71,17 @@ export const patchPost = async (id, data) => {
       body: JSON.stringify(data),
     });
     return await response.json();
+  };
+
+  export const getUserDetail = async (id) => {
+    try {
+      const url = userDetailURL(id);
+      
+      const response = await fetch(url);
+      const singleUser = await response.json();
+      console.log(singleUser.data);
+      return singleUser.data.users;
+    } catch (error) {
+      console.log(error);
+    }
   };
