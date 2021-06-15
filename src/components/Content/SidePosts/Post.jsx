@@ -13,7 +13,6 @@ import imgReactions from "../../../images/reaction-heart.svg";
 import imgComments from "../../../images/reaction-comment.svg";
 
 export default function Post(props) {
-  console.log(props);
   return (
     <React.Fragment>
       <div key={props.id} className={`card ${Styles.AppCard}`}>

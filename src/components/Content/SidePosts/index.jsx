@@ -38,7 +38,7 @@ import Styles from "./index.module.css";
 
 export default function Content(props) {
   const history = useHistory();
-  console.log(props.data);
+
   const buildPosts = (
     [
       key,
