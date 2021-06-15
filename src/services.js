@@ -7,11 +7,11 @@ const postDetailURL = (id) => `${API_URL}/posts/${id}/`;
 
 
 
-// Requests login
-const loginURL = `${API_URL}/login/`;
+// Requests user
+const usersURL = `${API_URL}/users/`;
 
 export const postUser = async (data) => {
-    const response = await fetch(loginURL, {
+    const response = await fetch(usersURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/JSON",
@@ -26,8 +26,11 @@ export const postUser = async (data) => {
 export const getPostDetail = async (id) => {
   try {
     const url = postDetailURL(id);
+    
     const response = await fetch(url);
-    return await response.json();
+    const singlePost = await response.json();
+    console.log(singlePost.data);
+    return singlePost.data.posts;
   } catch (error) {
     console.log(error);
   }

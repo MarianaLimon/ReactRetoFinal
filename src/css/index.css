@@ -8,6 +8,7 @@
   --loading-background-color: #eef0f1;
   --btn-sidebar-hover: #D2D6DB;
   --shadow-header: 0 3px 5px #e0dede;
+  --footer-background: #D2D6DB;
 }
 
 body[theme="dark"] {
@@ -21,6 +22,7 @@ body[theme="dark"] {
   --loading-background-color: #212529;
   --btn-sidebar-hover: #000;
   --shadow-header: 0 3px 5px #3a3a3a;
+  --footer-background: #343a40;
 }
 
 body {

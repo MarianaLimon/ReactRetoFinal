@@ -1,0 +1,11 @@
+.btn-create {
+  padding: 14px;
+  background-color: #3b49df;
+}
+.registration_footer {
+  text-align: center;
+  background-color: transparent;
+}
+.registration_footer-content {
+  display: block;
+}

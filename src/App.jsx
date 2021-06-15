@@ -8,6 +8,7 @@ import PostDetail from "./screens/PostDetail";
 import AddPost from "./screens/AddPost";
 import UpdatePost from "./screens/UpdatePost";
 import Login from "./screens/Login";
+import CreateAccount from "./screens/CreateAccount";
 
 class App extends React.Component {
   render() {
@@ -26,6 +27,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/createPost">
               <AddPost />
+            </Route>
+            <Route exact path="/createAccount">
+              <CreateAccount />
             </Route>
             <Route exact path="/login" component={Login} />
           </Switch>
