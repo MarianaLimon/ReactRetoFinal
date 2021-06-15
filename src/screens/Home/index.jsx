@@ -24,20 +24,20 @@ export default function Home() {
     };
     request();
   }, []);
-
+  console.log(data.posts);
   return (
     <React.Fragment>
       <Header />
-      <div className="container mt-4
-      ">
+      <div
+        className="container mt-4
+      "
+      >
         <div className="row">
           <div className="d-none d-md-block col-md-4 col-lg-2">
             <Content />
           </div>
           <div className="col-12 col-md-8 col-lg-7">
-            <Posts
-              data={Object.entries(data).length ? Object.entries(data) : []}
-            />
+            <Posts data={data.posts ? data.posts : []} />
             <div className="col">
               <button
                 onClick={() => history.push("/createPost")}
