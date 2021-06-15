@@ -1,30 +1,29 @@
 import React from "react";
 
-import { useHistory } from "react-router";
+import Post from "./Post";
+import Styles from "./index.module.css";
 
-import AppCard from "./AppCard";
+// Rutas imagenes
+// import image from "../../images/photo-main.jpeg";
 
-export default function Posts(props) {
-  const history = useHistory();
+// import imgReactions from "../../images/reaction-heart.svg";
+// import imgComments from "../../images/reaction-comment.svg";
 
-  const buildLI = ([key, { title, description }]) => {
+// import profile1 from "../../images/profiles/user2.webp";
+// import profile2 from "../../images/profiles/user3.webp";
+
+class Content extends React.Component {
+  render() {
     return (
-      <li key={key}>
-        <AppCard>
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
-          <button
-            onClick={() => history.push(`/posts/${key}`)}
-            className="btn btn-primary"
-          >
-            Detail
-          </button>
-        </AppCard>
-      </li>
+      <section>
+        <div className={`card ${Styles.AppCard}`}>
+          <div className="card-body">
+            <Post />
+          </div>
+        </div>
+      </section>
     );
-  };
-
-  return (
-    <ul className="d-flex flex-column">{props.data.reverse().map(buildLI)}</ul>
-  );
+  }
 }
+
+export default Content;
