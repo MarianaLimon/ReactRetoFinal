@@ -4,7 +4,7 @@
     padding: 1rem;
     -webkit-box-shadow: 0 10px 5px #e0dede;
     -moz-box-shadow: 0 10px 5px #e0dede;
-    box-shadow: 0 3px 5px #e0dede;
+    box-shadow: var(--shadow-header);
     background:  var(--header-background);
 }
 
