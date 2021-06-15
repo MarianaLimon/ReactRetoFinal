@@ -16,8 +16,8 @@ export default function Post(props) {
   return (
     <React.Fragment>
       <div key={props.id} className={`card ${Styles.AppCard}`}>
-        <div className="card-body">
-          <li className={`card ${Styles.CardContainer}`}>
+        <div className="card-body p-0">
+          <li className={`card mb-0 ${Styles.CardContainer}`}>
             {/* Imagen del Post */}
             <div className={`${Styles.ArticleImg}`}>
               <img className={`w-2`} src={`${props.coverUrl}`} />
