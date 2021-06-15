@@ -16,11 +16,11 @@ class Content extends React.Component {
   render() {
     return (
       <section>
-        <div className={`card ${Styles.AppCard}`}>
-          <div className="card-body">
+
+          <div>
             <Post />
           </div>
-        </div>
+
       </section>
     );
   }

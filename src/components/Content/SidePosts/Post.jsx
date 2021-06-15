@@ -52,27 +52,27 @@ const postsData = {
   ],
   post4: [
     {
-      title: "test",
+      title: "Post de Prueba",
       articleImg: imgArticleImg,
-      author: "sdfgdfgdfg",
+      author: "Camilo Cestso",
       authorImg: profile3,
-      date: "Jun 7",
-      reactions: "60",
-      comments: "7",
-      read: "15",
+      date: "Jun 45",
+      reactions: "20",
+      comments: "2",
+      read: "35",
     },
   ],
 };
 
 function Post() {
 
-  const postsUI = Object.entries(postsData).map(([type, posts], index) => (
+  const postsUI = Object.entries(postsData).reverse().map(([type, posts], index) => (
 
     <React.Fragment>
       {posts.map(
         ({title, articleImg, author, authorImg, date, reactions, comments, read}, index) => (
           
-          <li className={`card ${Styles.CardContainer}`} key={index}>
+          <li className={`card p-0 ${Styles.CardContainer}`} key={index}>
 
             {/* Imagen del Post */}
             <div className={`${Styles.ArticleImg}`}>
@@ -137,9 +137,7 @@ function Post() {
   ));
 
   return (
-    <div className="container">
-      <div className="row">{postsUI}</div>
-    </div>
+      <div>{postsUI}</div>
   );
 }
 
