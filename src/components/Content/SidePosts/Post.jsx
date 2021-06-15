@@ -38,7 +38,7 @@ export default function Post(props) {
               {/* Title */}
               <div>
                 <h2 className={`${Styles.cardTitle}`}>
-                  <a href={`./detailPost/${props.id}`}>{props.title}</a>
+                  <a href={`./posts/${props.id}`}>{props.title}</a>
                 </h2>
               </div>
               {/* Tags */}

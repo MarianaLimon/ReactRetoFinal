@@ -26,8 +26,11 @@ export const postUser = async (data) => {
 export const getPostDetail = async (id) => {
   try {
     const url = postDetailURL(id);
+    
     const response = await fetch(url);
-    return await response.json();
+    const singlePost = await response.json();
+    console.log(singlePost.data);
+    return singlePost.data.posts;
   } catch (error) {
     console.log(error);
   }
