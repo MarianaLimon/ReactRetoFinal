@@ -5,8 +5,8 @@ import "./styles.css";
 class MenuFooter extends React.Component {
   render() {
     return (
-      <main>
-        <ul className="d-flex justify-content-center">
+      <main className="pb-2">
+        <ul className="text-center">
           <li>Home</li>
           <li>Listings</li>
           <li>Podcast</li>
@@ -17,7 +17,7 @@ class MenuFooter extends React.Component {
           <li>DEV Shop</li>
           <li>Sponsors</li>
         </ul>
-        <ul className="d-flex justify-content-center">
+        <ul className="text-center">
           <li>About</li>
           <li>Privacy Policy</li>
           <li>Terms of use</li>
