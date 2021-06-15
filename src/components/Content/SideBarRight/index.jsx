@@ -1,19 +1,22 @@
-import React from 'react';
+import React from 'react'
 
-import AsideItem from './AsideItem';
+import Listings from './Listings'
+import OtherListings from './OtherListings'
 
-// import Styles from './header.module.css'
+import Styles from './index.module.css'
 
-class AsideCards extends React.Component {
-    render() {
-        return (
-            <AsideItem>
-                <h5 className = "card-title">Card title</h5>
-                <p className = "card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className = "btn btn-primary">Go somewhere</a>
-            </AsideItem>
+class RightBar extends React.Component{
+    render(){
+        return(
+
+            <div>
+                <Listings/>
+                <OtherListings/>        
+            </div>
+
         )
     }
 }
 
-export default AsideCards
+
+export default RightBar
