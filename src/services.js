@@ -38,7 +38,7 @@ export const getPosts = async () => {
     const response = await fetch(postURL);
     const allPost = await response.json();
     console.log(allPost.data);
-    return allPost.data;
+    return allPost.data.posts;
   } catch (error) {
     console.log(error);
   }

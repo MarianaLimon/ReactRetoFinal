@@ -24,7 +24,7 @@ export default function Home() {
     };
     request();
   }, []);
-  console.log(data.posts);
+  console.log(data);
   return (
     <React.Fragment>
       <Header />
@@ -37,7 +37,9 @@ export default function Home() {
             <Content />
           </div>
           <div className="col-12 col-md-8 col-lg-7">
-            <Posts data={data.posts ? data.posts : []} />
+            <Posts
+              data={Object.entries(data).length ? Object.entries(data) : []}
+            />
             <div className="col">
               <button
                 onClick={() => history.push("/createPost")}

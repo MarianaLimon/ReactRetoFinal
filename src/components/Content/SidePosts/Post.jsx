@@ -64,26 +64,36 @@ const postsData = {
   ],
 };
 
-function Post() {
-
+function Post(props) {
   const postsUI = Object.entries(postsData).map(([type, posts], index) => (
-
     <React.Fragment>
       {posts.map(
-        ({title, articleImg, author, authorImg, date, reactions, comments, read}, index) => (
-          
+        (
+          {
+            title,
+            articleImg,
+            author,
+            authorImg,
+            date,
+            reactions,
+            comments,
+            read,
+          },
+          index
+        ) => (
           <li className={`card ${Styles.CardContainer}`} key={index}>
-
             {/* Imagen del Post */}
             <div className={`${Styles.ArticleImg}`}>
               <img className={`w-2`} src={`${articleImg}`} />
             </div>
-
             {/* Card Info */}
             <div className={`${Styles.CardInfo}`}>
               {/* Author */}
               <div className={`${Styles.autor}`}>
-                <img className={`rounded-circle border border-secondary ${Styles.profile}`} src={authorImg}/>
+                <img
+                  className={`rounded-circle border border-secondary ${Styles.profile}`}
+                  src={authorImg}
+                />
                 <div className={`${Styles.autorName}`}>
                   <div>{author}</div>
                   <div>{date}</div>
@@ -128,8 +138,10 @@ function Post() {
                   <span>{read} min read</span>
                   <button>Save</button>
                 </div>
-              </div> {/* End Reactions */}
-            </div> {/* End Card Info */}
+              </div>{" "}
+              {/* End Reactions */}
+            </div>{" "}
+            {/* End Card Info */}
           </li>
         )
       )}
