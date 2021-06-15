@@ -1,0 +1,28 @@
+.header {
+    width: 100%;
+    font-size: 0.5rem;
+    padding: 1rem;
+    -webkit-box-shadow: 0 10px 5px #e0dede;
+    -moz-box-shadow: 0 10px 5px #e0dede;
+    box-shadow: 0 3px 5px #e0dede;
+    background:  var(--header-background);
+}
+
+.header h1{
+    font-size: 21px;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.4rem;
+}
+
+.header .btn.btn-link {
+    color: var(--bs-primary);
+    text-decoration: none;
+}
+
+.header .btn.btn-primary {
+    background-color: var(--bs-primary);
+    color: var(--bs-primary-color);
+}

@@ -1,0 +1,43 @@
+:root {
+  --color: #343a40;
+  --bs-primary: #3b49df;
+  --bs-primary-color: white;
+  --body-background: #eef0f1;
+  --header-background: white;
+  --card-background-color: white;
+  --loading-background-color: #eef0f1;
+}
+
+body[theme="dark"] {
+  --color: white;
+  --bs-primary: white;
+  --bs-primary-color: #343a40;
+  --body-background: #212529;
+  --header-background: #343a40;
+  --card-background-color: #343a40;
+  --loading-background-color: #212529;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var(--body-background);
+}
+
+body * {
+  color: var(--color);
+}
+
+ul, li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
