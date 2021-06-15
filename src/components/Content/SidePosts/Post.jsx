@@ -65,80 +65,92 @@ const postsData = {
 };
 
 function Post() {
-
-  const postsUI = Object.entries(postsData).reverse().map(([type, posts], index) => (
-
-    <React.Fragment>
-      {posts.map(
-        ({title, articleImg, author, authorImg, date, reactions, comments, read}, index) => (
-          
-          <li className={`card p-0 ${Styles.CardContainer}`} key={index}>
-
-            {/* Imagen del Post */}
-            <div className={`${Styles.ArticleImg}`}>
-              <img className={`w-2`} src={`${articleImg}`} />
-            </div>
-
-            {/* Card Info */}
-            <div className={`${Styles.CardInfo}`}>
-              {/* Author */}
-              <div className={`${Styles.autor}`}>
-                <img className={`rounded-circle border border-secondary ${Styles.profile}`} src={authorImg}/>
-                <div className={`${Styles.autorName}`}>
-                  <div>{author}</div>
-                  <div>{date}</div>
+  const postsUI = Object.entries(postsData)
+    .reverse()
+    .map(([type, posts], index) => (
+      <React.Fragment>
+        {posts.map(
+          (
+            {
+              title,
+              articleImg,
+              author,
+              authorImg,
+              date,
+              reactions,
+              comments,
+              read,
+            },
+            index
+          ) => (
+            <li className={`card p-0 ${Styles.CardContainer}`} key={index}>
+              {/* Imagen del Post */}
+              <div className={`${Styles.ArticleImg}`}>
+                <img className={`w-2`} src={`${articleImg}`} />
+              </div>
+              {/* Card Info */}
+              <div className={`${Styles.CardInfo}`}>
+                {/* Author */}
+                <div className={`${Styles.autor}`}>
+                  <img
+                    className={`rounded-circle border border-secondary ${Styles.profile}`}
+                    src={authorImg}
+                  />
+                  <div className={`${Styles.autorName}`}>
+                    <div>{author}</div>
+                    <div>{date}</div>
+                  </div>
                 </div>
-              </div>
-              {/* Title */}
-              <div>
-                <h2 className={`${Styles.cardTitle}`}>
-                  <a href="./">{title}</a>
-                </h2>
-              </div>
-              {/* Tags */}
-              <div className={`${Styles.tags}`}>
-                <a href="#">
-                  <span>#</span>beginners
-                </a>
-                <a href="#">
-                  <span>#</span>productivity
-                </a>
-                <a href="#">
-                  <span>#</span>javascript
-                </a>
-                <a href="#">
-                  <span>#</span>webdev
-                </a>
-              </div>
-              {/* Reactions */}
-              <div className={`${Styles.reactions}`}>
-                <div className={`${Styles.reactLeft}`}>
+                {/* Title */}
+                <div>
+                  <h2 className={`${Styles.cardTitle}`}>
+                    <a href="./">{title}</a>
+                  </h2>
+                </div>
+                {/* Tags */}
+                <div className={`${Styles.tags}`}>
                   <a href="#">
-                    <img src={`${imgReactions}`} />
-                    <span>{reactions}</span>
-                    <span className="react-text"> &nbsp;reactions</span>
+                    <span>#</span>beginners
                   </a>
                   <a href="#">
-                    <img src={imgComments} />
-                    <span>{comments}</span>
-                    <span className="react-text"> &nbsp;comments</span>
+                    <span>#</span>productivity
+                  </a>
+                  <a href="#">
+                    <span>#</span>javascript
+                  </a>
+                  <a href="#">
+                    <span>#</span>webdev
                   </a>
                 </div>
-                <div className="react-right">
-                  <span>{read} min read</span>
-                  <button>Save</button>
-                </div>
-              </div> {/* End Reactions */}
-            </div> {/* End Card Info */}
-          </li>
-        )
-      )}
-    </React.Fragment>
-  ));
+                {/* Reactions */}
+                <div className={`${Styles.reactions}`}>
+                  <div className={`${Styles.reactLeft}`}>
+                    <a href="#">
+                      <img src={`${imgReactions}`} />
+                      <span>{reactions}</span>
+                      <span className="react-text"> &nbsp;reactions</span>
+                    </a>
+                    <a href="#">
+                      <img src={imgComments} />
+                      <span>{comments}</span>
+                      <span className="react-text"> &nbsp;comments</span>
+                    </a>
+                  </div>
+                  <div className="react-right">
+                    <span>{read} min read</span>
+                    <button>Save</button>
+                  </div>
+                </div>{" "}
+                {/* End Reactions */}
+              </div>{" "}
+              {/* End Card Info */}
+            </li>
+          )
+        )}
+      </React.Fragment>
+    ));
 
-  return (
-      <div>{postsUI}</div>
-  );
+  return <div>{postsUI}</div>;
 }
 
 export default Post;

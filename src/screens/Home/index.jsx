@@ -24,7 +24,7 @@ export default function Home() {
     };
     request();
   }, []);
-
+  console.log(data);
   return (
     <React.Fragment>
       <Header />
