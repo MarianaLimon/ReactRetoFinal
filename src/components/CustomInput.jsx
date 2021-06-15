@@ -12,7 +12,7 @@ export default function CustomInput(props) {
         value={props.value}
         onChange={(event) => props.callback(event.target.value)}
         style={{
-          color: "peru",
+          color: "#acb2b9",
         }}
       />
     </React.Fragment>
