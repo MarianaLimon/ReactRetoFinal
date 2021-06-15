@@ -3,7 +3,7 @@
     height: 100%;
     width: 100%;
     background: rgba(79, 79, 79, 0.8);
-    top: 13%;
+    top: 95px;
     right: 0;
     z-index: 4;     
 }
@@ -49,6 +49,7 @@
 .MenuWrapper ul li {
     padding: 3px 0px;
     font-size: 12pt;
+    width: 100%;
 }
 .MenuWrapper ul li:last-of-type {
     padding: 8px 40px;
