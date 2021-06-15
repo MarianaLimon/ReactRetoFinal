@@ -24,11 +24,15 @@ export default function PostDetail() {
   const buildTags = (tag, index) => {
     return (
       <React.Fragment key={index}>
-        <span className="mr-2 p-badge font-weight-normal text-size-icon mr-3">
-          {tag}{" "}
+        <span className="p-badge font-weight-normal text-size-icon mr-3">
+          <a href="#"> {tag} </a>
         </span>
       </React.Fragment>
     );
+  };
+
+  const buildContent = (text, index) => {
+    return <React.Fragment key={index}>{text}</React.Fragment>;
   };
 
   return (
@@ -61,7 +65,12 @@ export default function PostDetail() {
                   <span className="ml-3 ">Mar 6 ・ 4 min read</span>
                 </a>
               </div>
-              <div className="content">{data.content && data.content}</div>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: data.content && data.content,
+                }}
+              ></div>
               <div className="col m-5">
                 <button
                   onClick={() => history.push(`/posts/${id}/update`)}
