@@ -1,0 +1,16 @@
+
+
+.MenuWrapper{
+    position: absolute;
+    width: 100%;
+    background: #4f4f4f;
+    top: 13%;
+    right: 0;
+    z-index: 4; 
+}
+
+.MenuWrapper li{
+    color: #fff;
+    font-size: 14pt;
+    padding: 10px;
+}

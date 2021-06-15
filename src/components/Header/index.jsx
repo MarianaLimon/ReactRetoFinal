@@ -5,6 +5,8 @@ import HeaderSearch from './HeaderSearch';
 import AppButton from '../AppButton';
 import AppThemeToggle from '../AppThemeToggle'
 
+import MenuHamburger from "./MenuHamburger";
+
 import './index.css';
 // import Styles from './header.module.css'
 
@@ -16,6 +18,7 @@ class Header extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-6 d-flex">
+                            <MenuHamburger />
                             <HeaderLogo />
                             <HeaderSearch />
                         </div>
