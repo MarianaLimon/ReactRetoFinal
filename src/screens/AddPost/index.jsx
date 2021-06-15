@@ -45,30 +45,33 @@ export default function AddPost(props) {
     }
   };
 
+  setTimeout(() => { 
+    $('#Image').hover(function() {
+      $(".tooltip-image").fadeIn(300);
+    }, function() {
+      $(".tooltip-image").fadeOut(300);
+    })
+  
+    $('#textarea').hover(function() {
+      $(".tooltip-title").fadeIn(300);
+    }, function() {
+      $(".tooltip-title").fadeOut(300);
+    })
+  
+    $('#tags').hover(function() {
+      $(".tooltip-tags").fadeIn(300);
+    }, function() {
+      $(".tooltip-tags").fadeOut(300);
+    })
+  
+    $('#Description').hover(function() {
+      $(".tooltip-content").fadeIn(300);
+    }, function() {
+      $(".tooltip-content").fadeOut(300);
+    })
+}, 1000);
 
-  $('#Image').hover(function() {
-    $(".tooltip-image").fadeIn(300);
-  }, function() {
-    $(".tooltip-image").fadeOut(300);
-  })
 
-  $('#textarea').hover(function() {
-    $(".tooltip-title").fadeIn(300);
-  }, function() {
-    $(".tooltip-title").fadeOut(300);
-  })
-
-  $('#tags').hover(function() {
-    $(".tooltip-tags").fadeIn(300);
-  }, function() {
-    $(".tooltip-tags").fadeOut(300);
-  })
-
-  $('#Description').hover(function() {
-    $(".tooltip-content").fadeIn(300);
-  }, function() {
-    $(".tooltip-content").fadeOut(300);
-  })
 
 
   return (
