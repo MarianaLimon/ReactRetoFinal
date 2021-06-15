@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
 import CustomInput from "../../components/CustomInput";
+import CustomTextarea from "../../components/Header/CustomTextarea";
 
 // Services
 import { postPost } from "../../services";
@@ -42,6 +43,12 @@ export default function AddPost() {
           <div className="col">
             <form onSubmit={handleSubmit}>
               <div className="form-group col-md-6">
+                <CustomTextarea
+                  id="textarea"
+                  placeholder="New post title here..."
+                  value={title}
+                  callback={setTitle}
+                />
                 <CustomInput
                   id="Title"
                   placeholder="Title"
