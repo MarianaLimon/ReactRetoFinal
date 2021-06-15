@@ -10,6 +10,7 @@
 
 body[theme="dark"] {
   --color: white;
+  --color-grey: #f2f2f2;
   --bs-primary: white;
   --bs-primary-color: #343a40;
   --body-background: #212529;
@@ -31,6 +32,32 @@ body {
 
 body * {
   color: var(--color);
+}
+
+body a {
+  color: var(--color-links);
+}
+
+.card{
+  background-color: var(--card-background-color) !important;
+}
+
+.card div{
+  color: var(--color-grey) !important;
+}
+
+.card div a{
+  color: var(--color-grey) !important;
+}
+
+
+.card h2 a{
+  color: var(--color-grey) !important;
+}
+
+.list-group-item{
+  background-color: var(--card-background-color) !important;
+  color: var(--color-grey) !important;
 }
 
 ul, li {
