@@ -25,8 +25,17 @@
   color: #323ebe;
 }
 
-.CardContainer:first-of-type img {
+/* .CardContainer:first-of-type img {
   display: block;
+} */
+
+.AppCard{
+  margin-bottom: 16px;
+}
+
+.AppCard:first-of-type img{
+  display: block;
+
 }
 
 .ArticleImg img {
