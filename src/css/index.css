@@ -6,16 +6,19 @@
   --header-background: white;
   --card-background-color: white;
   --loading-background-color: #eef0f1;
+  --btn-sidebar-hover: #D2D6DB;
 }
 
 body[theme="dark"] {
   --color: white;
+  --color-grey: #f2f2f2;
   --bs-primary: white;
   --bs-primary-color: #343a40;
   --body-background: #212529;
   --header-background: #343a40;
   --card-background-color: #343a40;
   --loading-background-color: #212529;
+  --btn-sidebar-hover: #000;
 }
 
 body {
@@ -31,6 +34,32 @@ body {
 
 body * {
   color: var(--color);
+}
+
+body a {
+  color: var(--color-links);
+}
+
+.card{
+  background-color: var(--card-background-color) !important;
+}
+
+.card div{
+  color: var(--color-grey) !important;
+}
+
+.card div a{
+  color: var(--color-grey) !important;
+}
+
+
+.card h2 a{
+  color: var(--color-grey) !important;
+}
+
+.list-group-item{
+  background-color: var(--card-background-color) !important;
+  color: var(--color-grey) !important;
 }
 
 ul, li {

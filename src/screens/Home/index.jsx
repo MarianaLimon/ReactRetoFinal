@@ -28,8 +28,10 @@ export default function Home() {
   return (
     <React.Fragment>
       <Header />
-      <div className="container mt-4
-      ">
+      <div
+        className="container mt-4
+      "
+      >
         <div className="row">
           <div className="d-none d-md-block col-md-4 col-lg-2">
             <Content />
