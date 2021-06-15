@@ -28,12 +28,13 @@ export default function Home() {
   return (
     <React.Fragment>
       <Header />
-      <div className="container">
+      <div className="container mt-4
+      ">
         <div className="row">
-          <div className="col-md-2">
+          <div className="d-none d-md-block col-md-4 col-lg-2">
             <Content />
           </div>
-          <div className="col-md-6 my-3">
+          <div className="col-12 col-md-8 col-lg-7">
             <Posts
               data={Object.entries(data).length ? Object.entries(data) : []}
             />
@@ -46,7 +47,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="col-md-4 my-3">
+          <div className="col-lg-3 d-none d-lg-block">
             <AsideCards />
           </div>
         </div>
