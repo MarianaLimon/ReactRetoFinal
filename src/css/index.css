@@ -6,6 +6,7 @@
   --header-background: white;
   --card-background-color: white;
   --loading-background-color: #eef0f1;
+  --btn-sidebar-hover: #D2D6DB;
 }
 
 body[theme="dark"] {
@@ -16,6 +17,7 @@ body[theme="dark"] {
   --header-background: #343a40;
   --card-background-color: #343a40;
   --loading-background-color: #212529;
+  --btn-sidebar-hover: #000;
 }
 
 body {
