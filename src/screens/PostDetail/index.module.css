@@ -1,0 +1,18 @@
+
+
+.AuthorInfo{
+    border-top: 30px solid #922180;
+    padding-top: 12px; 
+}
+
+.AuthorImage img{
+    margin-top: -31px;
+    height: 50px;
+    margin-left: 11px; 
+}
+
+.AuthorImage h4{
+    font-weight: bold;
+    font-size: 14pt;
+    padding-left: 4px;
+}

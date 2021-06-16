@@ -8,6 +8,8 @@ import { getPostDetail, getUserDetail } from "../../services";
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
 
+import Styles from "./index.module.css"
+
 export default function PostDetail() {
   const [data, setData] = useState({});
   const [author, setAuthor] = useState({});
@@ -40,7 +42,7 @@ export default function PostDetail() {
       <Header />
       <div className="container">
         <div className="row justify-content-lg-around m-3">
-          <div className="card col-7 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 post-wrapper bg-white">
+          <div className="card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-12 col-lg-8 post-wrapper bg-white">
             <img
               alt={data.title && data.title}
               src={data.coverUrl && data.coverUrl}
@@ -87,9 +89,9 @@ export default function PostDetail() {
           </div>
 
           <aside className="col-12 mb-3 px-0 order-md-3 col-md-11 col-lg-3 px-lg-2">
-            <div className="card shadow-sm rounded mb-3">
+            <div className={`card shadow-sm rounded mb-3 ${Styles.AuthorInfo}`}>
               <div className="bg-post-header w-100 pt-6 rounded-top position-relative"></div>
-              <div className="position-absolute author-absolute d-flex pb-3">
+              <div className={`d-flex ${Styles.AuthorImage}`}>
                 <img
                   src={author.userPic && author.userPic}
                   alt={author.userName && author.userName}
@@ -99,7 +101,7 @@ export default function PostDetail() {
                   {author.userName && author.userName}
                 </h4>
               </div>
-              <div className="card-body mt-4">
+              <div className="card-body">
                 <p className="text-size-paragraph text-color-card-black perfil-description">
                   {author.description && author.description}
                 </p>
