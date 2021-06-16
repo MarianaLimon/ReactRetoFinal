@@ -5,6 +5,7 @@ import { useHistory, useParams } from "react-router";
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
 import CustomInput from "../../components/CustomInput";
+import Footer from "../../components/Footer";
 
 // Services
 import { patchPost, getPostDetail } from "../../services";
@@ -94,6 +95,7 @@ export default function UpdatePost() {
           </div>
         </div>
       </div>
+      <Footer />
       <AppLoading />
     </React.Fragment>
   );

@@ -7,6 +7,7 @@ import { getPostDetail, getUserDetail } from "../../services";
 
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
+import Footer from "../../components/Footer";
 
 // Images
 import imgFlag from "../../images/leftbar/icon-flag.svg";
@@ -14,8 +15,7 @@ import imgUnicorn from "../../images/leftbar/icon-unicorn.svg";
 import imgDots from "../../images/leftbar/icon-dots.svg";
 import imgHeart from "../../images/leftbar/icon-heart.svg";
 
-
-import Styles from "./index.module.css"
+import Styles from "./index.module.css";
 
 export default function PostDetail() {
   const [data, setData] = useState({});
@@ -49,29 +49,37 @@ export default function PostDetail() {
       <Header />
       <div className="container">
         <div className="row justify-content-lg-around m-3">
-
-
           <section className={`${Styles.LeftSide} d-none d-md-block col-md-1`}>
             <ul className={`${Styles.MenuInnerPost}`}>
               <li>
-                <div><img src={imgHeart} /></div>
+                <div>
+                  <img src={imgHeart} />
+                </div>
                 2
               </li>
               <li>
-                <div><img src={imgUnicorn} /></div>
+                <div>
+                  <img src={imgUnicorn} />
+                </div>
                 1
               </li>
               <li>
-                <div><img src={imgFlag} /></div>
+                <div>
+                  <img src={imgFlag} />
+                </div>
                 0
               </li>
               <li>
-                <div><img src={imgDots} /></div>
+                <div>
+                  <img src={imgDots} />
+                </div>
               </li>
             </ul>
           </section>
 
-          <section className={`${Styles.PostWrapper} card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 bg-white`}>
+          <section
+            className={`${Styles.PostWrapper} card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 bg-white`}
+          >
             <img
               alt={data.title && data.title}
               src={data.coverUrl && data.coverUrl}
@@ -86,7 +94,6 @@ export default function PostDetail() {
                 {data.tags && data.tags.map(buildTags)}
               </div>
 
-              
               <div className="d-flex flex-row align-items-center mb-3">
                 {/* Image Author */}
                 <div className="col-1">
@@ -101,7 +108,9 @@ export default function PostDetail() {
                 <div className="col-11">
                   {/* Creation */}
                   <div className="col-12">
-                    <a className={`${Styles.Author} my-auto text-color-title post-creation`}>
+                    <a
+                      className={`${Styles.Author} my-auto text-color-title post-creation`}
+                    >
                       {author.userName && author.userName}
                       {"  "}
                     </a>
@@ -135,7 +144,9 @@ export default function PostDetail() {
           </section>
 
           <aside className="d-none col-12 mb-3 px-0 order-md-3 col-md-11 d-lg-block col-lg-3 px-lg-2">
-            <div className={`card shadow-sm rounded mb-3 ${Styles.AuthorWrapper}`}>
+            <div
+              className={`card shadow-sm rounded mb-3 ${Styles.AuthorWrapper}`}
+            >
               <div className="bg-post-header w-100 pt-6 rounded-top position-relative"></div>
               <div className={`d-flex ${Styles.AuthorHeader}`}>
                 <img
@@ -155,17 +166,13 @@ export default function PostDetail() {
                   Follow {author.userNickname && author.userNickname}
                 </button>
                 <div className="d-flex flex-column mt-3">
-                  <span>
-                    Work
-                  </span>
+                  <span>Work</span>
                   <p className="text-size-paragraph perfil-work">
                     {author.work && author.work}
                   </p>
                 </div>
                 <div className="d-flex flex-column">
-                  <span>
-                    Location
-                  </span>
+                  <span>Location</span>
                   <p className="text-size-paragraph perfil-location">
                     {author.location && author.location}
                   </p>
@@ -174,7 +181,6 @@ export default function PostDetail() {
             </div>
 
             <div className={`card bg-card shadow-sm ${Styles.MoreFrom}`}>
-
               <div className={`${Styles.Title}`}>
                 <div className="card-body">
                   <h4 className="text-color-title my-2">
@@ -182,14 +188,11 @@ export default function PostDetail() {
                     <a href="#" className="perfil-name">
                       {author.userName && author.userName}
                     </a>
-                  </h4> 
+                  </h4>
                 </div>
               </div>
-              
-
 
               <div className={`${Styles.AllArticles}`}>
-
                 <div className={`${Styles.Article}`}>
                   <div className="card-body">
                     <a href="#" className="text-color-title">
@@ -232,12 +235,12 @@ export default function PostDetail() {
                   </div>
                 </div>
               </div>
-
             </div>
           </aside>
         </div>
       </div>
 
+      <Footer />
       <AppLoading />
     </React.Fragment>
   );
