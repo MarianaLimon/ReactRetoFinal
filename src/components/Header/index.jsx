@@ -4,6 +4,7 @@ import HeaderLogo from "./HeaderLogo";
 import HeaderSearch from "./HeaderSearch";
 import AppButton from "../AppButton";
 import AppThemeToggle from "../AppThemeToggle";
+import AppProfile from "./AppProfile";
 
 import MenuHamburger from "./MenuHamburger";
 
@@ -53,6 +54,7 @@ export default function Header() {
               type="anchor"
               url="/createPost"
             />
+            <AppProfile />
             {/* <AppThemeToggle /> */}
           </div>
         </div>
