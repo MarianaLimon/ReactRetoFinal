@@ -28,16 +28,16 @@ export default function Post(props) {
               <div className={`${Styles.autor}`}>
                 <img
                   className={`rounded-circle border border-secondary ${Styles.profile}`}
-                  src={props.coverUrl}
+                  src={props.userPic}
                 />
                 <div className={`${Styles.autorName}`}>
-                  <div>{props.userId}</div>
+                  <div>{props.userName}</div>
                   <div>{props.creationDate}</div>
                 </div>
               </div>
               {/* Title */}
               <div>
-                <h2 className={`${Styles.cardTitle}`}>
+                <h2 className={`${Styles.cardTitle} pl-0 pl-md-3`}>
                   <a href={`./posts/${props.id}`}>{props.title}</a>
                 </h2>
               </div>
@@ -60,20 +60,20 @@ export default function Post(props) {
               <div className={`${Styles.reactions} container`}>
 
                 <div className="row">
-                  <div className={`${Styles.reactionsLeft} col-12 col-md-8 col-lg-8`}>
+                  <div className={`${Styles.reactionsLeft} col-7 col-md-7 col-lg-8`}>
                     <a href="#">
                       <img src={`${imgReactions}`} />
                       <span>{props.likes}</span>
-                      <span className="react-text"> &nbsp;reactions</span>
+                      <span className="react-text d-none d-md-block"> &nbsp;reactions</span>
                     </a>
                     <a href="#">
                       <img src={imgComments} />
                       <span>{props.likes}</span>
-                      <span className="react-text"> &nbsp;comments</span>
+                      <span className="react-text d-none d-md-block"> &nbsp;comments</span>
                     </a>
                   </div>
 
-                  <div className={`${Styles.reactionsRight} col-12 col-md-4 col-lg-4`}>
+                  <div className={`${Styles.reactionsRight} col-5 col-md-5 col-lg-4`}>
                     <span>{props.duration} read</span>
                     <button>Save</button>
                   </div>  
