@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 import CustomInput from "../../components/CustomInput";
 
 // Services
-import { postUser } from "../../services";
+import { postLogin } from "../../services";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -21,8 +21,13 @@ export default function Login() {
         email,
         password,
       };
-      await postUser(newUser);
-      history.push("/");
+
+      const login = await postLogin(newUser);
+      if (login.success) {
+        localStorage.setItem("token_dev", login.data.token);
+
+        history.push("/");
+      }
     } catch (error) {
       console.log(error);
     }
