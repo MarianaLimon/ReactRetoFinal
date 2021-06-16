@@ -71,7 +71,7 @@ export default function PostDetail() {
             </ul>
           </section>
 
-          <section className="card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 post-wrapper bg-white">
+          <section className={`card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 bg-white ${Styles.PostWrapper}`}>
             <img
               alt={data.title && data.title}
               src={data.coverUrl && data.coverUrl}
@@ -101,7 +101,7 @@ export default function PostDetail() {
                 {data.duration && data.duration} read
               </span>
               <div
-                className="content"
+                className={`${Styles.Content}`}
                 dangerouslySetInnerHTML={{
                   __html: data.content && data.content,
                 }}
