@@ -71,8 +71,25 @@
 }
 
 
+.PostWrapper .Author{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.PostWrapper .Creation{
+    font-size: 10pt;
+}
+
+
 .PostWrapper .Content img{
     width: 100%;
+}
+
+.PostTags a{
+    margin-right: 14px;
+    font-size: 11pt;
+    color: #76808c !important;
+    text-decoration: none;
 }
 
 
