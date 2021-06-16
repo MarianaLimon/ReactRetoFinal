@@ -64,6 +64,7 @@ export default function PostDetail() {
         userId: userLogged._id,
       };
       console.log(newReply);
+      setUserComment("");
       const reply = await postReply(newReply);
       if (reply.success) {
         const jsonReplies = await getRepliesByPost(id);
@@ -122,7 +123,7 @@ export default function PostDetail() {
           <div className="w-10">
             <img
               src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
-              alt="Inicie Sesion"
+              alt="Inicia Sesion"
               className="img-profile rounded-circle post-user-avatar"
               onClick={(event) => history.push(`/login`)}
             />
