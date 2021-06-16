@@ -89,9 +89,9 @@ export default function PostDetail() {
           </div>
 
           <aside className="col-12 mb-3 px-0 order-md-3 col-md-11 col-lg-3 px-lg-2">
-            <div className={`card shadow-sm rounded mb-3 ${Styles.AuthorInfo}`}>
+            <div className={`card shadow-sm rounded mb-3 ${Styles.AuthorWrapper}`}>
               <div className="bg-post-header w-100 pt-6 rounded-top position-relative"></div>
-              <div className={`d-flex ${Styles.AuthorImage}`}>
+              <div className={`d-flex ${Styles.AuthorHeader}`}>
                 <img
                   src={author.userPic && author.userPic}
                   alt={author.userName && author.userName}
@@ -101,7 +101,7 @@ export default function PostDetail() {
                   {author.userName && author.userName}
                 </h4>
               </div>
-              <div className="card-body">
+              <div className={`card-body ${Styles.AuthorInfo}`}>
                 <p className="text-size-paragraph text-color-card-black perfil-description">
                   {author.description && author.description}
                 </p>
@@ -109,7 +109,7 @@ export default function PostDetail() {
                   Follow {author.userNickname && author.userNickname}
                 </button>
                 <div className="d-flex flex-column mt-3">
-                  <span className="font-weight-bold text-uppercase text-size-span ">
+                  <span>
                     Work
                   </span>
                   <p className="text-size-paragraph perfil-work">
@@ -117,57 +117,76 @@ export default function PostDetail() {
                   </p>
                 </div>
                 <div className="d-flex flex-column">
-                  <span className="font-weight-bold text-uppercase text-size-span">
+                  <span>
                     Location
                   </span>
                   <p className="text-size-paragraph perfil-location">
                     {author.location && author.location}
                   </p>
                 </div>
-                <div className="font-weight-bold text-uppercase"></div>
               </div>
             </div>
 
-            <div className="w-100 bg-card px-3 py-1 shadow-sm bg-white">
-              <h4 className="font-weight-bold text-color-title my-2">
-                More from{" "}
-                <a href="#" className="perfil-name">
-                  {author.userName && author.userName}
-                </a>
-              </h4>
-              <div className="py-2 border-bottom-post px-0">
-                <a href="#" className="text-color-title">
-                  Integrate Okta to Node, Express, and VUe
-                </a>
-                <div>
-                  <span className="mr-2">#webdev</span>
-                  <span className="mr-2">#node</span>
-                  <span className="mr-2">#vue</span>
-                  <span className="mr-2">#tutorial</span>
+            <div className={`card bg-card shadow-sm ${Styles.MoreFrom}`}>
+
+              <div className={`${Styles.Title}`}>
+                <div className="card-body">
+                  <h4 className="text-color-title my-2">
+                    More from{" "}
+                    <a href="#" className="perfil-name">
+                      {author.userName && author.userName}
+                    </a>
+                  </h4> 
                 </div>
               </div>
-              <div className="py-2 border-bottom-post px-0">
-                <a href="#" className="text-color-title">
-                  AWS ECR or Docker Hub
-                </a>
-                <div>
-                  <span className="mr-2">#docker</span>
-                  <span className="mr-2">#webdev</span>
-                  <span className="mr-2">#tutorial</span>
-                  <span className="mr-2">#node</span>
+              
+
+
+              <div className={`${Styles.AllArticles}`}>
+
+                <div className={`${Styles.Article}`}>
+                  <div className="card-body">
+                    <a href="#" className="text-color-title">
+                      Integrate Okta to Node, Express, and VUe
+                    </a>
+                    <div className={`${Styles.Tags}`}>
+                      <span>#webdev</span>
+                      <span>#node</span>
+                      <span>#vue</span>
+                      <span>#tutorial</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`${Styles.Article}`}>
+                  <div className="card-body">
+                    <a href="#" className="text-color-title">
+                      AWS ECR or Docker Hub
+                    </a>
+                    <div className={`${Styles.Tags}`}>
+                      <span>#docker</span>
+                      <span>#webdev</span>
+                      <span>#tutorial</span>
+                      <span>#node</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`${Styles.Article}`}>
+                  <div className="card-body">
+                    <a href="#" className="text-color-title">
+                      Docker, Node, and Vue
+                    </a>
+                    <div className={`${Styles.Tags}`}>
+                      <span>#webdev</span>
+                      <span>#docker</span>
+                      <span>#vue</span>
+                      <span>#tutorial</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="pt-2 px-0">
-                <a href="#" className="text-color-title">
-                  Docker, Node, and Vue
-                </a>
-                <div>
-                  <span className="mr-2">#webdev</span>
-                  <span className="mr-2">#docker</span>
-                  <span className="mr-2">#vue</span>
-                  <span className="mr-2">#tutorial</span>
-                </div>
-              </div>
+
             </div>
           </aside>
         </div>
