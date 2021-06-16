@@ -6,7 +6,7 @@ import CustomInput from "../../components/CustomInput";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AppButton from "../../components/AppButton";
-import "./index.css";
+import Styles from "./index.module.css"
 import { postUser } from "../../services";
 
 export default function CreateAccount() {
@@ -44,15 +44,18 @@ export default function CreateAccount() {
   return (
     <React.Fragment>
       <Header />
-      <div className="container container-fluid mt-2">
+      <div className={`${Styles.Contenedor} container container-fluid`}>
         <div className="cont-wrapp row">
           <section className="col-12 col-md-8 mx-auto bg-white1 p-3 p-lg-5 my-md-3 shadow">
+            
             <div className="text-center">
               <h1 className="font-weight-bold">Welcome to DEV Community</h1>
               <p className="pb-3">
                 DEV Community is a community of 606,615 amazing developers
               </p>
             </div>
+
+            
             <form id="form-users" onSubmit={handleSubmit}>
               <div className="form-group mb-2">
                 <CustomInput
@@ -128,17 +131,17 @@ export default function CreateAccount() {
                 />
               </div>
               <br />
-              <button className="btn text-white w-100 btn-create" type="submit">
+              <button className={`${Styles.BtnCreate} btn text-white w-100`} type="submit">
                 Registrar usuario
               </button>
             </form>
           </section>
 
-          <div class="registration_footer py-4">
-            <p class="registration_footer-content">
+          <div className={`${Styles.RegistrationFooter} py-4`}>
+            <p className="registration_footer-content">
               We strive for transparency and don't collect excess data.
             </p>
-            <p class="registration_footer-content">
+            <p className="registration_footer-content">
               Open Source
               <svg
                 xmlns="http://www.w3.org/2000/svg"

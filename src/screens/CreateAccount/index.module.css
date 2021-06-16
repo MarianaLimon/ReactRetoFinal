@@ -1,15 +1,15 @@
-.btn-create {
+
+.Contenedor{
+  margin: 34px auto;
+}
+.BtnCreate {
   padding: 8px;
   background-color: #3b49df;
 }
-.registration_footer {
+.RegistrationFooter {
   text-align: center;
   background-color: transparent;
 }
-.registration_footer-content {
-  display: block;
-}
-
 label{
   padding-left: 10px;
   color: #202428 !important;

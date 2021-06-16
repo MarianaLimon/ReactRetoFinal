@@ -57,23 +57,29 @@ export default function Post(props) {
                 </a>
               </div>
               {/* Reactions */}
-              <div className={`${Styles.reactions}`}>
-                <div className={`${Styles.reactLeft}`}>
-                  <a href="#">
-                    <img src={`${imgReactions}`} />
-                    <span>{props.likes}</span>
-                    <span className="react-text"> &nbsp;reactions</span>
-                  </a>
-                  <a href="#">
-                    <img src={imgComments} />
-                    <span>{props.likes}</span>
-                    <span className="react-text"> &nbsp;comments</span>
-                  </a>
+              <div className={`${Styles.reactions} container`}>
+
+                <div className="row">
+                  <div className={`${Styles.reactionsLeft} col-12 col-md-8 col-lg-8`}>
+                    <a href="#">
+                      <img src={`${imgReactions}`} />
+                      <span>{props.likes}</span>
+                      <span className="react-text"> &nbsp;reactions</span>
+                    </a>
+                    <a href="#">
+                      <img src={imgComments} />
+                      <span>{props.likes}</span>
+                      <span className="react-text"> &nbsp;comments</span>
+                    </a>
+                  </div>
+
+                  <div className={`${Styles.reactionsRight} col-12 col-md-4 col-lg-4`}>
+                    <span>{props.duration} read</span>
+                    <button>Save</button>
+                  </div>  
                 </div>
-                <div className="react-right">
-                  <span>{props.duration} min read</span>
-                  <button>Save</button>
-                </div>
+                
+
               </div>{" "}
               {/* End Reactions */}
             </div>{" "}
