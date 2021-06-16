@@ -55,12 +55,12 @@ export default function Login() {
               <div className="text-center">
                 <h1 className="font-weight-bold">Log In</h1>
                 <p className="pb-3">
-                  DEV Community is a community of 606,615 amazing developers
+                Have a account? Continue with your email address ans password
                 </p>
               </div>
 
               <form className="mt-3" onSubmit={handleSubmit}>
-                <div className="form-group col-12">
+                <div className="form-group mb-2">
                   <CustomInput
                     id="Email"
                     placeholder="Email"
@@ -69,7 +69,7 @@ export default function Login() {
                     callback={setEmail}
                   />
                 </div>
-                <div className="form-group col-12">
+                <div className="form-group mb-2">
                   <CustomInput
                     id="Password"
                     placeholder="Password"
