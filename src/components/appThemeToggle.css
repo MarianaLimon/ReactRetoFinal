@@ -1,11 +1,11 @@
 .appThemeToggle {
-    margin-left: 1rem;
+    margin-bottom: 1.5rem;
     padding: 0.5rem 0.75rem;
-    background: rgb(65,63,63);
+    background: #fff;
     border-radius: 0.75rem;
     font-size: 20px;
-    width: 3rem;
-}
+    width: 40%;
+    height: 40px;}
 
 .appThemeToggle.light::after{
     content: "😎";

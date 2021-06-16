@@ -1,4 +1,5 @@
 import React from "react";
+import AppThemeToggle from "../../../AppThemeToggle";
 import Dropdown from "./DropdownMenu/Dropdown";
 import "./style.css";
 
@@ -7,6 +8,7 @@ class DateFilter extends React.Component {
     return (
       <nav className="d-flex justify-content-between pb-2">
         <h3>Post</h3>
+
         <ul className="filter d-none d-lg-block">
           <li className="active">Feed</li>
           <li>Week</li>
@@ -15,6 +17,7 @@ class DateFilter extends React.Component {
           <li>Infinity</li>
           <li>Lastest</li>
         </ul>
+
         <Dropdown />
       </nav>
     );

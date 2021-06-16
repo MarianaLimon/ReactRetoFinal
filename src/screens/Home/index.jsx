@@ -31,7 +31,7 @@ export default function Home() {
     <React.Fragment>
       <Header />
       <div
-        className="container mt-4
+        className="container mt-3
       "
       >
         <div className="row">

@@ -23,15 +23,15 @@ export default function Header() {
       {/* </nav><nav className=´{d-flex ${Styles.Header}}´> */}
       <div className="container">
         <div className="row">
-          <div className="col-6 d-flex">
+          <div className="col-6 d-flex px-0">
             <MenuHamburger />
             <HeaderLogo />
             <HeaderSearch />
           </div>
-          <div className="col-6 d-flex justify-content-end">
+          <div className="col-6 d-flex justify-content-end px-0">
             <AppButton
               className={`btn-link d-flex align-items-center justtify-content-center ${
-                session ? "d-none" : ""
+                session ? "d-none" : "d-none d-lg-block"
               }`}
               text="Log in"
               type="anchor"
@@ -53,7 +53,7 @@ export default function Header() {
               type="anchor"
               url="/createPost"
             />
-            <AppThemeToggle />
+            {/* <AppThemeToggle /> */}
           </div>
         </div>
       </div>
