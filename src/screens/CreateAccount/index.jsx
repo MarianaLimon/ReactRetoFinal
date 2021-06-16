@@ -6,7 +6,7 @@ import CustomInput from "../../components/CustomInput";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AppButton from "../../components/AppButton";
-import Styles from "./index.module.css"
+import Styles from "./index.module.css";
 import { postUser } from "../../services";
 
 export default function CreateAccount() {
@@ -36,7 +36,7 @@ export default function CreateAccount() {
         description,
       };
       await postUser(newUser);
-      history.push("/");
+      history.push("/login");
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +47,6 @@ export default function CreateAccount() {
       <div className={`${Styles.Contenedor} container container-fluid`}>
         <div className="cont-wrapp row">
           <section className="col-12 col-md-8 mx-auto bg-white1 p-3 p-lg-5 my-md-3 shadow">
-            
             <div className="text-center">
               <h1 className="font-weight-bold">Welcome to DEV Community</h1>
               <p className="pb-3">
@@ -55,7 +54,6 @@ export default function CreateAccount() {
               </p>
             </div>
 
-            
             <form id="form-users" onSubmit={handleSubmit}>
               <div className="form-group mb-2">
                 <CustomInput
@@ -131,7 +129,10 @@ export default function CreateAccount() {
                 />
               </div>
               <br />
-              <button className={`${Styles.BtnCreate} btn text-white w-100`} type="submit">
+              <button
+                className={`${Styles.BtnCreate} btn text-white w-100`}
+                type="submit"
+              >
                 Registrar usuario
               </button>
             </form>

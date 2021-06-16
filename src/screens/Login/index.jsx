@@ -32,8 +32,9 @@ export default function Login() {
       };
 
       const login = await postLogin(newUser);
+
       if (login.success) {
-        const { token, mail, _id } = login;
+        const { token, mail, _id } = login.data;
         localStorage.setItem("token", token);
         localStorage.setItem("email", mail);
         localStorage.setItem("id", _id);
