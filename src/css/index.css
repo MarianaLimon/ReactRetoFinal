@@ -58,7 +58,7 @@ body a {
 }
 
 .card h2 a {
-  color: var(--color-grey);
+  color: var(--color);
 }
 
 .list-group-item {

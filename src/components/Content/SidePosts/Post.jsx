@@ -37,7 +37,7 @@ export default function Post(props) {
               </div>
               {/* Title */}
               <div>
-                <h2 className={`${Styles.cardTitle}`}>
+                <h2 className={`${Styles.cardTitle} pl-0 pl-md-3`}>
                   <a href={`./posts/${props.id}`}>{props.title}</a>
                 </h2>
               </div>
@@ -60,7 +60,7 @@ export default function Post(props) {
               <div className={`${Styles.reactions} container`}>
 
                 <div className="row">
-                  <div className={`${Styles.reactionsLeft} col-12 col-md-8 col-lg-8`}>
+                  <div className={`${Styles.reactionsLeft} col-12 col-md-7 col-lg-8`}>
                     <a href="#">
                       <img src={`${imgReactions}`} />
                       <span>{props.likes}</span>
@@ -73,7 +73,7 @@ export default function Post(props) {
                     </a>
                   </div>
 
-                  <div className={`${Styles.reactionsRight} col-12 col-md-4 col-lg-4`}>
+                  <div className={`${Styles.reactionsRight} col-12 col-md-5 col-lg-4`}>
                     <span>{props.duration} read</span>
                     <button>Save</button>
                   </div>  
