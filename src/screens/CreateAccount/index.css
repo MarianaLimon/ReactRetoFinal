@@ -1,5 +1,5 @@
 .btn-create {
-  padding: 14px;
+  padding: 8px;
   background-color: #3b49df;
 }
 .registration_footer {
@@ -8,4 +8,10 @@
 }
 .registration_footer-content {
   display: block;
+}
+
+label{
+  padding-left: 10px;
+  color: #202428 !important;
+  font-size: 14px;
 }

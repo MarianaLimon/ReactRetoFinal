@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import CustomInput from "../../components/CustomInput";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import AppButton from "../../components/AppButton";
 import "./index.css";
 import { postUser } from "../../services";
@@ -43,15 +44,17 @@ export default function CreateAccount() {
   return (
     <React.Fragment>
       <Header />
-      <div className="container container-fluid">
+      <div className="container container-fluid mt-2">
         <div className="cont-wrapp row">
-          <section className="col-12 col-md-8 mx-auto bg-white1 p-3 my-md-3 shadow">
+          <section className="col-12 col-md-8 mx-auto bg-white1 p-3 p-lg-5 my-md-3 shadow">
             <div className="text-center">
               <h1 className="font-weight-bold">Welcome to DEV Community</h1>
-              <p>DEV Community is a community of 606,615 amazing developers</p>
+              <p className="pb-3">
+                DEV Community is a community of 606,615 amazing developers
+              </p>
             </div>
             <form id="form-users" onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Nombre de usuario"
                   placeholder=""
@@ -60,7 +63,7 @@ export default function CreateAccount() {
                   callback={setUserName}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Nombre Completo"
                   placeholder=""
@@ -69,7 +72,7 @@ export default function CreateAccount() {
                   callback={setUserNickname}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="URL Imagen"
                   placeholder=""
@@ -78,7 +81,7 @@ export default function CreateAccount() {
                   callback={setUserPic}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Empresa"
                   placeholder=""
@@ -87,7 +90,7 @@ export default function CreateAccount() {
                   callback={setWork}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Ubicación del usuario"
                   placeholder=""
@@ -96,7 +99,7 @@ export default function CreateAccount() {
                   callback={setLocation}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Correo electrónico"
                   placeholder=""
@@ -105,7 +108,7 @@ export default function CreateAccount() {
                   callback={setEmail}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Contraseña"
                   type="password"
@@ -115,7 +118,7 @@ export default function CreateAccount() {
                   callback={setPassword}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-2">
                 <CustomInput
                   id="Descripción"
                   placeholder=""
@@ -131,7 +134,7 @@ export default function CreateAccount() {
             </form>
           </section>
 
-          <div class="registration_footer">
+          <div class="registration_footer py-4">
             <p class="registration_footer-content">
               We strive for transparency and don't collect excess data.
             </p>
@@ -175,6 +178,7 @@ export default function CreateAccount() {
           </div>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 }
