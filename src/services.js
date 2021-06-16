@@ -11,6 +11,7 @@ const postLoginURL =  `${API_URL}/users/login/`
 const usersURL = `${API_URL}/users/`;
 const userDetailURL = (id) => `${API_URL}/users/${id}/`;
 
+const repliessURL = `${API_URL}/replies/`;
 const repliesByPostURL = (id) => `${API_URL}/replies/${id}/`;
 
 export const postUser = async (data) => {
@@ -106,6 +107,21 @@ export const patchPost = async (id, data) => {
       const RepliesByPost = await response.json();
       console.log(RepliesByPost.data);
       return RepliesByPost.data.replies;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const postReply = async (data) => {
+    try {
+      const response = await fetch(repliessURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/JSON",
+        },
+        body: JSON.stringify(data),
+      });
+      return await response.json();
     } catch (error) {
       console.log(error);
     }

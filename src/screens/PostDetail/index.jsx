@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
 
 // Services
-import { getPostDetail, getRepliesByPost, getUserDetail } from "../../services";
+import {
+  getPostDetail,
+  getRepliesByPost,
+  getUserDetail,
+  postReply,
+} from "../../services";
 
 //Components
 import Header from "../../components/Header";
@@ -23,6 +28,7 @@ export default function PostDetail() {
   const [author, setAuthor] = useState({});
   const [replies, setReplies] = useState({});
   const [userLogged, setUserLogged] = useState({});
+  const [userComment, setUserComment] = useState("");
 
   const history = useHistory();
   const { id } = useParams();
@@ -36,11 +42,11 @@ export default function PostDetail() {
       setAuthor(jsonAuthor);
 
       const jsonReplies = await getRepliesByPost(id);
-      console.log(jsonReplies);
       setReplies(jsonReplies);
 
-      const userLoggedID = localStorage.getItem(id);
+      const userLoggedID = localStorage.getItem("id");
       if (userLoggedID) {
+        console.log("logged:", true);
         const jsonUserLogged = await getUserDetail(userLoggedID);
         setUserLogged(jsonUserLogged);
       }
@@ -52,17 +58,17 @@ export default function PostDetail() {
     event.preventDefault();
 
     try {
-      /* const newUser = {
-        email,
-        password,
+      const newReply = {
+        content: userComment,
+        post: data._id,
+        userId: userLogged._id,
       };
-
-      const login = await postLogin(newUser);
-      if (login.success) {
-        const { token, mail, _id } = login;
-
-        history.push("/");
-      }*/
+      console.log(newReply);
+      const reply = await postReply(newReply);
+      if (reply.success) {
+        const jsonReplies = await getRepliesByPost(id);
+        setReplies(jsonReplies);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +83,7 @@ export default function PostDetail() {
       </React.Fragment>
     );
   };
-  console.log(replies);
+
   const buildReplies = (
     { _id, content, creationDate, post, userId },
     index
@@ -106,37 +112,62 @@ export default function PostDetail() {
       </li>
     );
   };
-  const buildUserInfo = (postId) => {
+  const buildUserInfo = () => {
     if (!userLogged._id) {
       return (
-        <div className="w-10">
-          <a href="#" onClick={() => history.push(`/login`)}>
+        <div className="d-flex flex-row justify-content-between mb-4">
+          <h2 className="font-weight-bold m-0 my-auto">
+            Discussion (<span className="count-replies">{replies.length}</span>)
+          </h2>
+          <div className="w-10">
             <img
               src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
               alt="Inicie Sesion"
               className="img-profile rounded-circle post-user-avatar"
+              onClick={(event) => history.push(`/login`)}
             />
-          </a>
+          </div>
         </div>
       );
     }
 
     return (
-      <div className="w-10">
-        <img
-          src={userLogged.userPic}
-          alt={userLogged.userName}
-          className="img-profile rounded-circle post-user-avatar"
-        />
-        <div className="form-group mb-2">
-          <input
-            type="hidden"
-            id="userId"
-            name="userId"
-            value={userLogged._id}
-          />
+      <form className="mt-3" onSubmit={handleSubmit}>
+        <div className="d-flex flex-row justify-content-between mb-4">
+          <h2 className="font-weight-bold m-0 my-auto">
+            Discussion (<span className="count-replies">{replies.length}</span>)
+          </h2>
+          <div className="form-group mb-2">
+            <button
+              className="btn-outline-suscribe rounded btn-save-replie "
+              type="submit"
+              disabled={!userComment}
+            >
+              Suscribe
+            </button>
+          </div>
         </div>
-      </div>
+        <div className="w-100 d-flex flex-row justify-content-between mb-3">
+          <div className="w-10">
+            <img
+              src={userLogged.userPic}
+              alt={userLogged.userName}
+              className="img-profile rounded-circle post-user-avatar"
+            />
+          </div>
+
+          <div className="form-group mb-2">
+            <textarea
+              id="post-reply"
+              placeholder="Add to the discussion"
+              rows="2"
+              className="w-70 rounded"
+              onChange={(event) => setUserComment(event.target.value)}
+              value={userComment}
+            />
+          </div>
+        </div>
+      </form>
     );
   };
   return (
@@ -230,7 +261,9 @@ export default function PostDetail() {
               <div className="col m-5">
                 <button
                   onClick={() => history.push(`/posts/${id}/update`)}
-                  className="btn btn-warning"
+                  className={`btn btn-warning ${
+                    userLogged._id != author._id && "d-none"
+                  }`}
                 >
                   Edit
                 </button>
@@ -238,39 +271,7 @@ export default function PostDetail() {
             </div>
 
             <div className="d-flex flex-column p-5">
-              <form className="mt-3" onSubmit={handleSubmit}>
-                <div className="d-flex flex-row justify-content-between mb-4">
-                  <h2 className="font-weight-bold m-0 my-auto">
-                    Discussion (
-                    <span className="count-replies">{replies.length}</span>)
-                  </h2>
-                  <div className="form-group mb-2">
-                    <button
-                      className="btn-outline-suscribe rounded btn-save-replie"
-                      type="submit"
-                    >
-                      Suscribe
-                    </button>
-                  </div>
-                </div>
-                <div className="w-100 d-flex flex-row justify-content-between mb-3">
-                  {buildUserInfo()}
-                  <div className="form-group mb-2">
-                    <textarea
-                      id="post-reply"
-                      placeholder="Add to the discussion"
-                      rows="2"
-                      className="w-70 rounded"
-                    ></textarea>
-                    <input
-                      type="hidden"
-                      id="post"
-                      name="post"
-                      value={data._id && data._id}
-                    />
-                  </div>
-                </div>
-              </form>
+              {buildUserInfo()}
               <ul className="" id="replies-wrapper">
                 {replies.length > 0 && replies.map(buildReplies)}
               </ul>
