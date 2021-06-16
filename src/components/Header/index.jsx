@@ -30,7 +30,7 @@ export default function Header() {
           </div>
           <div className="col-6 d-flex justify-content-end">
             <AppButton
-              className={`btn-link d-flex align-items-center justtify-content-center ${
+              className={`btn btn-link d-flex align-items-center justtify-content-center ${
                 session ? "d-none" : ""
               }`}
               text="Log in"
