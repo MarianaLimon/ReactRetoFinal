@@ -37,7 +37,7 @@ export default function PostDetail() {
   const buildTags = (tag, index) => {
     return (
       <React.Fragment key={index}>
-        <span className="p-badge font-weight-normal text-size-icon mx-3">
+        <span className={`${Styles.PostTags}`}>
           <a href="#"> {tag} </a>
         </span>
       </React.Fragment>
@@ -71,7 +71,7 @@ export default function PostDetail() {
             </ul>
           </section>
 
-          <section className={`card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 bg-white ${Styles.PostWrapper}`}>
+          <section className={`${Styles.PostWrapper} card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 bg-white`}>
             <img
               alt={data.title && data.title}
               src={data.coverUrl && data.coverUrl}
@@ -85,27 +85,44 @@ export default function PostDetail() {
               <div className="d-flex flex-row w-100 mb-3 post-tags">
                 {data.tags && data.tags.map(buildTags)}
               </div>
-              <div className="d-flex flex-row mb-3">
-                <img
-                  src={author.userPic && author.userPic}
-                  alt={author.userName && author.userName}
-                  className="img-profile rounded-circle mr-2 post-avatar "
-                />
-                <a className="my-auto text-color-title post-creation mx-3">
-                  {author.userName && author.userName}
-                  {"  "}
-                </a>
+
+              
+              <div className="d-flex flex-row align-items-center mb-3">
+                {/* Image Author */}
+                <div className="col-1">
+                  <img
+                    src={author.userPic && author.userPic}
+                    alt={author.userName && author.userName}
+                    className="img-profile rounded-circle mr-2 post-avatar "
+                  />
+                </div>
+
+                {/* Creation and Read */}
+                <div className="col-11">
+                  {/* Creation */}
+                  <div className="col-12">
+                    <a className={`${Styles.Author} my-auto text-color-title post-creation`}>
+                      {author.userName && author.userName}
+                      {"  "}
+                    </a>
+                  </div>
+                  {/* Read */}
+                  <div className="col-12">
+                    <span className={`${Styles.Creation} my-3`}>
+                      {data.creationDate && data.creationDate} ・{" "}
+                      {data.duration && data.duration} read
+                    </span>
+                  </div>
+                </div>
               </div>
-              <span className="my-3 ">
-                {data.creationDate && data.creationDate} ・{" "}
-                {data.duration && data.duration} read
-              </span>
+
               <div
                 className={`${Styles.Content}`}
                 dangerouslySetInnerHTML={{
                   __html: data.content && data.content,
                 }}
               ></div>
+
               <div className="col m-5">
                 <button
                   onClick={() => history.push(`/posts/${id}/update`)}
