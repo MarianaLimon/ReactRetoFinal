@@ -8,6 +8,13 @@ import { getPostDetail, getUserDetail } from "../../services";
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
 
+// Images
+import imgFlag from "../../images/leftbar/icon-flag.svg";
+import imgUnicorn from "../../images/leftbar/icon-unicorn.svg";
+import imgDots from "../../images/leftbar/icon-dots.svg";
+import imgHeart from "../../images/leftbar/icon-heart.svg";
+
+
 import Styles from "./index.module.css"
 
 export default function PostDetail() {
@@ -42,7 +49,29 @@ export default function PostDetail() {
       <Header />
       <div className="container">
         <div className="row justify-content-lg-around m-3">
-          <div className="card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-12 col-lg-8 post-wrapper bg-white">
+
+
+          <section className={`${Styles.LeftSide} d-none d-md-block col-md-1`}>
+            <ul className={`${Styles.MenuInnerPost}`}>
+              <li>
+                <div><img src={imgHeart} /></div>
+                2
+              </li>
+              <li>
+                <div><img src={imgUnicorn} /></div>
+                1
+              </li>
+              <li>
+                <div><img src={imgFlag} /></div>
+                0
+              </li>
+              <li>
+                <div><img src={imgDots} /></div>
+              </li>
+            </ul>
+          </section>
+
+          <section className="card col-12 shadow-sm mb-3 px-0 order-md-2 col-md-11 col-lg-8 post-wrapper bg-white">
             <img
               alt={data.title && data.title}
               src={data.coverUrl && data.coverUrl}
@@ -86,9 +115,9 @@ export default function PostDetail() {
                 </button>
               </div>
             </div>
-          </div>
+          </section>
 
-          <aside className="col-12 mb-3 px-0 order-md-3 col-md-11 col-lg-3 px-lg-2">
+          <aside className="d-none col-12 mb-3 px-0 order-md-3 col-md-11 d-lg-block col-lg-3 px-lg-2">
             <div className={`card shadow-sm rounded mb-3 ${Styles.AuthorWrapper}`}>
               <div className="bg-post-header w-100 pt-6 rounded-top position-relative"></div>
               <div className={`d-flex ${Styles.AuthorHeader}`}>
