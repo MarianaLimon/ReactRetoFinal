@@ -6,6 +6,8 @@ import CustomInput from "../../components/CustomInput";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
+import Styles from "./index.module.css"
+
 // Services
 import { postLogin } from "../../services";
 
@@ -43,12 +45,21 @@ export default function Login() {
   return (
     <React.Fragment>
       <Header />
-      <div className="container h-100">
-        <div className="row h-100 justify-content-center align-items-center">
-          <div className="d-flex col-10 col-md-6 bg-dark rounded h-50 align-items-center px-0">
-            <div className="col p-5">
-              <h2 className="text-white">Log In</h2>
-              <form className="mt-5" onSubmit={handleSubmit}>
+
+
+      <div className={`${Styles.Contenedor} container container-fluid`}>
+        <div className="cont-wrapp row">
+
+            <section className="col-12 col-md-8 col-lg-6 mx-auto bg-white1 p-3 p-lg-5 shadow">
+              
+              <div className="text-center">
+                <h1 className="font-weight-bold">Log In</h1>
+                <p className="pb-3">
+                  DEV Community is a community of 606,615 amazing developers
+                </p>
+              </div>
+
+              <form className="mt-3" onSubmit={handleSubmit}>
                 <div className="form-group col-12">
                   <CustomInput
                     id="Email"
@@ -71,8 +82,9 @@ export default function Login() {
                   Submit
                 </button>
               </form>
-            </div>
-          </div>
+
+            </section>
+
         </div>
       </div>
       <Footer />
