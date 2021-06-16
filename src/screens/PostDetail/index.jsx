@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
 
 // Services
-import { getPostDetail, getUserDetail } from "../../services";
+import { getPostDetail, getRepliesByPost, getUserDetail } from "../../services";
 
+//Components
 import Header from "../../components/Header";
 import AppLoading from "../../components/AppLoading";
 import Footer from "../../components/Footer";
@@ -20,6 +21,9 @@ import Styles from "./index.module.css";
 export default function PostDetail() {
   const [data, setData] = useState({});
   const [author, setAuthor] = useState({});
+  const [replies, setReplies] = useState({});
+  const [userLogged, setUserLogged] = useState({});
+
   const history = useHistory();
   const { id } = useParams();
 
@@ -30,9 +34,39 @@ export default function PostDetail() {
 
       const jsonAuthor = await getUserDetail(json.userId);
       setAuthor(jsonAuthor);
+
+      const jsonReplies = await getRepliesByPost(id);
+      console.log(jsonReplies);
+      setReplies(jsonReplies);
+
+      const userLoggedID = localStorage.getItem(id);
+      if (userLoggedID) {
+        const jsonUserLogged = await getUserDetail(userLoggedID);
+        setUserLogged(jsonUserLogged);
+      }
     };
     request();
   }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      /* const newUser = {
+        email,
+        password,
+      };
+
+      const login = await postLogin(newUser);
+      if (login.success) {
+        const { token, mail, _id } = login;
+
+        history.push("/");
+      }*/
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const buildTags = (tag, index) => {
     return (
@@ -43,7 +77,68 @@ export default function PostDetail() {
       </React.Fragment>
     );
   };
+  console.log(replies);
+  const buildReplies = (
+    { _id, content, creationDate, post, userId },
+    index
+  ) => {
+    return (
+      <li className="list-group-item" key={_id}>
+        <div className="reply-box">
+          <h4 id="index">
+            <div className="d-flex flex-row mb-3">
+              <img
+                src={userId.userPic}
+                alt={userId.userName}
+                className="img-profile rounded-circle mr-2"
+              />
+              <a className="my-auto text-color-title">{userId.userName}</a>
+            </div>
+          </h4>
 
+          <p className="mb-0 text-muted comment-text">{content}</p>
+          <p className="mb-0 text-right text-muted comment-date">
+            <span className="date">{creationDate}</span>
+            <span className="text-color-icon text-size-icon mx-2 ">•</span>
+            <span className="time">{creationDate}</span>
+          </p>
+        </div>
+      </li>
+    );
+  };
+  const buildUserInfo = (postId) => {
+    if (!userLogged._id) {
+      return (
+        <div className="w-10">
+          <a href="#" onClick={() => history.push(`/login`)}>
+            <img
+              src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
+              alt="Inicie Sesion"
+              className="img-profile rounded-circle post-user-avatar"
+            />
+          </a>
+        </div>
+      );
+    }
+
+    return (
+      <div className="w-10">
+        <img
+          src={userLogged.userPic}
+          alt={userLogged.userName}
+          className="img-profile rounded-circle post-user-avatar"
+        />
+        <div className="form-group mb-2">
+          <input
+            type="hidden"
+            id="userId"
+            name="userId"
+            value={userLogged._id}
+          />
+        </div>
+      </div>
+    );
+  };
   return (
     <React.Fragment key={data.id}>
       <Header />
@@ -139,6 +234,60 @@ export default function PostDetail() {
                 >
                   Edit
                 </button>
+              </div>
+            </div>
+
+            <div className="d-flex flex-column p-5">
+              <form className="mt-3" onSubmit={handleSubmit}>
+                <div className="d-flex flex-row justify-content-between mb-4">
+                  <h2 className="font-weight-bold m-0 my-auto">
+                    Discussion (
+                    <span className="count-replies">{replies.length}</span>)
+                  </h2>
+                  <div className="form-group mb-2">
+                    <button
+                      className="btn-outline-suscribe rounded btn-save-replie"
+                      type="submit"
+                    >
+                      Suscribe
+                    </button>
+                  </div>
+                </div>
+                <div className="w-100 d-flex flex-row justify-content-between mb-3">
+                  {buildUserInfo()}
+                  <div className="form-group mb-2">
+                    <textarea
+                      id="post-reply"
+                      placeholder="Add to the discussion"
+                      rows="2"
+                      className="w-70 rounded"
+                    ></textarea>
+                    <input
+                      type="hidden"
+                      id="post"
+                      name="post"
+                      value={data._id && data._id}
+                    />
+                  </div>
+                </div>
+              </form>
+              <ul className="" id="replies-wrapper">
+                {replies.length > 0 && replies.map(buildReplies)}
+              </ul>
+              <div className="d-flex flex-row justify-content-center">
+                <a
+                  href="#"
+                  className="text-color-icon text-size-icon hover-conduct"
+                >
+                  Code of conduct
+                </a>
+                <span className="text-color-icon text-size-icon mx-2 ">•</span>
+                <a
+                  href="#"
+                  className="text-color-icon text-size-icon hover-conduct"
+                >
+                  Report abuse
+                </a>
               </div>
             </div>
           </section>
