@@ -4,7 +4,7 @@ const API_URL = "http://localhost:8080";
 // Endpoints
 const postURL = `${API_URL}/posts/`;
 const postDetailURL = (id) => `${API_URL}/posts/${id}/`;
-
+const postLoginURL =  `${API_URL}/users/login/`
 
 
 // Requests user
@@ -22,6 +22,16 @@ export const postUser = async (data) => {
     return await response.json();
   };
 
+  export const postLogin = async (data) =>{
+    const response = await fetch(postLoginURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/JSON",
+        },
+        body: JSON.stringify(data),
+      });
+      return await response.json();
+}
 
 // Requests Post
 export const getPostDetail = async (id) => {

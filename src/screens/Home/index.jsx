@@ -43,14 +43,14 @@ export default function Home() {
             <Posts
               data={Object.entries(data).length ? Object.entries(data) : []}
             />
-            <div className="col">
+            {/* <div className="col">
               <button
                 onClick={() => history.push("/createPost")}
                 className="btn btn-primary"
               >
                 Add Post
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="col-lg-3 d-none d-lg-block">
             <AsideCards />

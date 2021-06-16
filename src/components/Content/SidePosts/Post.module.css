@@ -12,8 +12,16 @@
 }
 
 .cardTitle {
-  padding-left: 2.5rem;
+  padding-left: 0;
 }
+
+
+@media (min-width: 768px) {
+  .cardTitle {
+    padding-left: 2.5rem;
+  }
+}
+
 
 .cardTitle a {
   text-decoration: none;
@@ -81,8 +89,16 @@
   margin-bottom: 0.75rem;
   font-size: 0.875rem;
   display: inline-block;
-  padding-left: 2.5rem;
+  padding-left: 0;
 }
+
+@media (min-width: 768px) {
+  .tags {
+    padding-left: 2.5rem;
+  }
+}
+
+
 .tags a:link,
 .tags a:visited,
 .tags a:active {
@@ -104,30 +120,41 @@
 /*/////////*/
 
 .reactions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
   font-size: 0.75rem;
   /*margin: 0.5rem 0 0;
    */
-  padding-left: 2.5rem;
+  padding-left: 0;
 }
-.reactions .reactLeft {
+
+@media (min-width: 768px) {
+  .reactions {
+    padding-left: 2.5rem;
+  }
+}
+
+.reactions .reactionsLeft {
   display: flex;
 }
-.reactions .reactLeft a {
+.reactions .reactionsLeft a {
+  display: flex;
+  align-items:center;
   text-decoration: none;
-  display: flex;
-  align-items: center;
   margin: auto 1.5rem auto -5px;
   color: #4d5760;
   padding: 5px;
 }
-.reactions .reactLeft a:hover {
+.reactions .reactionsLeft a:hover {
   background-color: #eef0f1;
   border-radius: 2px;
   color: #000;
 }
+.reactions .reactionsRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 
 .reactions button {
   padding: 0.5rem;

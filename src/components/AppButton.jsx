@@ -1,11 +1,11 @@
 import React from "react";
 
-function AppButton({ className: classNameProp, type, text }) {
+function AppButton({ className: classNameProp, type, text, url }) {
   const className = classNameProp ? classNameProp : "";
 
   if (type === "anchor") {
     return (
-      <a href="#" className={`btn btn-link ${className}`}>
+      <a href={`${url}`} className={`btn btn-link ${className}`}>
         {text}
       </a>
     );

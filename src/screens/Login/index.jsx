@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useHistory } from "react-router";
 
 import CustomInput from "../../components/CustomInput";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
+import Styles from "./index.module.css"
 
 // Services
-import { postUser } from "../../services";
+import { postLogin } from "../../services";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const history = useHistory();
+  useEffect(() => {
+    if (localStorage.getItem("token_dev")) {
+      history.push("/");
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,45 +30,64 @@ export default function Login() {
         email,
         password,
       };
-      await postUser(newUser);
-      history.push("/");
+
+      const login = await postLogin(newUser);
+      if (login.success) {
+        localStorage.setItem("token_dev", login.data.token);
+
+        history.push("/");
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="container h-100">
-      <div className="row h-100 justify-content-center align-items-center">
-        <div className="d-flex col-10 col-md-6 bg-dark rounded h-50 align-items-center px-0">
-          <div className="col p-5">
-            <h2 className="text-white">Log In</h2>
-            <form className="mt-5" onSubmit={handleSubmit}>
-              <div className="form-group col-12">
-                <CustomInput
-                  id="Email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  callback={setEmail}
-                />
+    <React.Fragment>
+      <Header />
+
+
+      <div className={`${Styles.Contenedor} container container-fluid`}>
+        <div className="cont-wrapp row">
+
+            <section className="col-12 col-md-8 col-lg-6 mx-auto bg-white1 p-3 p-lg-5 shadow">
+              
+              <div className="text-center">
+                <h1 className="font-weight-bold">Log In</h1>
+                <p className="pb-3">
+                Have a account? Continue with your email address ans password
+                </p>
               </div>
-              <div className="form-group col-12">
-                <CustomInput
-                  id="Password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  callback={setPassword}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary mt-2">
-                Submit
-              </button>
-            </form>
-          </div>
+
+              <form className="mt-3" onSubmit={handleSubmit}>
+                <div className="form-group mb-2">
+                  <CustomInput
+                    id="Email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    callback={setEmail}
+                  />
+                </div>
+                <div className="form-group mb-2">
+                  <CustomInput
+                    id="Password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    callback={setPassword}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary mt-2">
+                  Submit
+                </button>
+              </form>
+
+            </section>
+
         </div>
       </div>
-    </div>
+      <Footer />
+    </React.Fragment>
   );
 }

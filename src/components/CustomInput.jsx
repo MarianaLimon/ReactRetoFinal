@@ -11,9 +11,6 @@ export default function CustomInput(props) {
         placeholder={props.placeholder}
         value={props.value}
         onChange={(event) => props.callback(event.target.value)}
-        style={{
-          color: "#acb2b9",
-        }}
       />
     </React.Fragment>
   );

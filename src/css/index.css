@@ -1,5 +1,6 @@
 :root {
   --color: #343a40;
+  --color-grey: #76808c;
   --bs-primary: #3b49df;
   --bs-primary-color: white;
   --body-background: #eef0f1;
@@ -49,20 +50,20 @@ body a {
 }
 
 .card div {
-  color: var(--color-grey) !important;
+  color: var(--color);
 }
 
 .card div a {
-  color: var(--color-grey) !important;
+  color: var(--color-grey);
 }
 
 .card h2 a {
-  color: var(--color-grey) !important;
+  color: var(--color);
 }
 
 .list-group-item {
   background-color: var(--card-background-color) !important;
-  color: var(--color-grey) !important;
+  color: var(--color-grey);
 }
 
 ul,
