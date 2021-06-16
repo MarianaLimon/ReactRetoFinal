@@ -14,7 +14,7 @@ export default function Header() {
   const [session, setSession] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("token_dev")) {
+    if (localStorage.getItem("token")) {
       setSession(true);
     }
   }, []);
