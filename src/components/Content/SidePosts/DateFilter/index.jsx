@@ -1,4 +1,5 @@
 import React from "react";
+import Dropdown from "./DropdownMenu/Dropdown";
 import "./style.css";
 
 class DateFilter extends React.Component {
@@ -14,6 +15,7 @@ class DateFilter extends React.Component {
           <li>Infinity</li>
           <li>Lastest</li>
         </ul>
+        <Dropdown />
       </nav>
     );
   }
