@@ -87,7 +87,7 @@ export default function PostDetail() {
               </div>
 
               
-              <div className="d-flex flex-row justify-content-center mb-3">
+              <div className="d-flex flex-row align-items-center mb-3">
                 {/* Image Author */}
                 <div className="col-1">
                   <img
