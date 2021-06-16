@@ -28,10 +28,10 @@ export default function Post(props) {
               <div className={`${Styles.autor}`}>
                 <img
                   className={`rounded-circle border border-secondary ${Styles.profile}`}
-                  src={props.coverUrl}
+                  src={props.userPic}
                 />
                 <div className={`${Styles.autorName}`}>
-                  <div>{props.userId}</div>
+                  <div>{props.userName}</div>
                   <div>{props.creationDate}</div>
                 </div>
               </div>

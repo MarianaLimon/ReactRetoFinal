@@ -35,7 +35,9 @@ export default function Content(props) {
           likes={likes}
           tags={tags}
           title={title}
-          userId={userId}
+          userId={userId._id}
+          userName={userId.userName}
+          userPic={userId.userPic}
         />
       </React.Fragment>
     );
