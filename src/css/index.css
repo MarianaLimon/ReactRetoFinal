@@ -50,7 +50,7 @@ body a {
 }
 
 .card div {
-  color: var(--color-grey);
+  color: var(--color);
 }
 
 .card div a {

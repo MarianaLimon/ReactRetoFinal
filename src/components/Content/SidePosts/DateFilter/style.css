@@ -1,3 +1,9 @@
+
+ul.filter li{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
 ul.filter li:hover{
     background-color: #d2d6db;
     border-radius: 5px;
@@ -6,6 +12,9 @@ ul.filter li:hover{
 
 ul.filter li.active{
     border-bottom: solid #4749DF 4px;
-    font-weight: bold;
     color: black;
+}
+
+h3{
+    font-size: 16pt;
 }
