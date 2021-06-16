@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import HeaderLogo from "./HeaderLogo";
 import HeaderSearch from "./HeaderSearch";
 import AppButton from "../AppButton";
-import Avatar from "./Avatar";
+import AppThemeToggle from "../AppThemeToggle";
+import AppProfile from "./AppProfile";
 
 import MenuHamburger from "./MenuHamburger";
 
@@ -53,8 +54,9 @@ export default function Header() {
               type="anchor"
               url="/createPost"
             />
-            <Avatar />
-          </div>{" "}
+            <AppProfile />
+            {/* <AppThemeToggle /> */}
+          </div>
         </div>
       </div>
     </nav>
