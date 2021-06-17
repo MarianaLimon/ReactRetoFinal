@@ -282,12 +282,12 @@ export default function PostDetail() {
               </div>
             </div>
 
-            <div className="d-flex flex-column p-5">
+            <div className="d-flex flex-column p-2 p-lg-5">
               {buildUserInfo()}
               <ul className="" id="replies-wrapper">
                 {replies.length > 0 && replies.map(buildReplies)}
               </ul>
-              <div className="d-flex flex-row justify-content-center">
+              <div className="d-flex flex-row justify-content-center py-4">
                 <a
                   href="#"
                   className="text-color-icon text-size-icon hover-conduct"
