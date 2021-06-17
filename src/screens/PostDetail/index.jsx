@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Moment from "react-moment";
 
 import { useParams, useHistory } from "react-router";
 
@@ -105,9 +106,17 @@ export default function PostDetail() {
 
           <p className="mb-0 text-muted comment-text">{content}</p>
           <p className="mb-0 text-right text-muted comment-date">
-            <span className="date">{creationDate}</span>
+            <span className="date">
+              <Moment format="D MMM YYYY" withTitle>
+                {creationDate}
+              </Moment>
+            </span>
             <span className="text-color-icon text-size-icon mx-2 ">•</span>
-            <span className="time">{creationDate}</span>
+            <span className="time">
+              <Moment fromNow ago>
+                {creationDate}
+              </Moment>
+            </span>
           </p>
         </div>
       </li>
@@ -245,8 +254,10 @@ export default function PostDetail() {
                   {/* Read */}
                   <div className="col-12">
                     <span className={`${Styles.Creation} my-3`}>
-                      {data.creationDate && data.creationDate} ・{" "}
-                      {data.duration && data.duration} read
+                      <Moment format="D MMM YYYY" withTitle>
+                        {data.creationDate && data.creationDate}
+                      </Moment>{" "}
+                      ・ {data.duration && data.duration} read
                     </span>
                   </div>
                 </div>

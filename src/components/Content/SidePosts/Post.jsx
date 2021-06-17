@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Moment from "react-moment";
 
 import Styles from "./Post.module.css";
 
@@ -32,7 +33,15 @@ export default function Post(props) {
                 />
                 <div className={`${Styles.autorName}`}>
                   <div>{props.userName}</div>
-                  <div>{props.creationDate}</div>
+                  <div>
+                    <Moment format="D MMM YYYY" withTitle>
+                      {props.creationDate}
+                    </Moment>{" "}
+                    -{" "}
+                    <Moment fromNow ago>
+                      {props.creationDate}
+                    </Moment>
+                  </div>
                 </div>
               </div>
               {/* Title */}
@@ -58,28 +67,35 @@ export default function Post(props) {
               </div>
               {/* Reactions */}
               <div className={`${Styles.reactions} container`}>
-
                 <div className="row">
-                  <div className={`${Styles.reactionsLeft} col-7 col-md-7 col-lg-8`}>
+                  <div
+                    className={`${Styles.reactionsLeft} col-7 col-md-7 col-lg-8`}
+                  >
                     <a href="#">
                       <img src={`${imgReactions}`} />
                       <span>{props.likes}</span>
-                      <span className="react-text d-none d-md-block"> &nbsp;reactions</span>
+                      <span className="react-text d-none d-md-block">
+                        {" "}
+                        &nbsp;reactions
+                      </span>
                     </a>
                     <a href="#">
                       <img src={imgComments} />
                       <span>{props.likes}</span>
-                      <span className="react-text d-none d-md-block"> &nbsp;comments</span>
+                      <span className="react-text d-none d-md-block">
+                        {" "}
+                        &nbsp;comments
+                      </span>
                     </a>
                   </div>
 
-                  <div className={`${Styles.reactionsRight} col-5 col-md-5 col-lg-4`}>
+                  <div
+                    className={`${Styles.reactionsRight} col-5 col-md-5 col-lg-4`}
+                  >
                     <span>{props.duration} read</span>
                     <button>Save</button>
-                  </div>  
+                  </div>
                 </div>
-                
-
               </div>{" "}
               {/* End Reactions */}
             </div>{" "}
