@@ -171,7 +171,7 @@ export default function PostDetail() {
               id="post-reply"
               placeholder="Add to the discussion"
               rows="2"
-              className="rounded w-100"
+              className="rounded w-100 area-commit"
               onChange={(event) => setUserComment(event.target.value)}
               value={userComment}
             />

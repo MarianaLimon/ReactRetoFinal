@@ -86,7 +86,13 @@ ul {
   background-color: #323ebe;
   color: white;
 }
+
 .area-commits{
   width: 100%;
   margin-left: 5px;
+}
+
+.area-commit{
+  border: solid 2px #EEF0F1;
+  height: 100px;
 }
