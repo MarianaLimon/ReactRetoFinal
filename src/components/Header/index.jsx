@@ -31,7 +31,7 @@ export default function Header() {
           </div>
           <div className="col-6 d-flex justify-content-end px-0">
             <AppButton
-              className={`btn-link d-flex align-items-center justtify-content-center ${
+              className={` btn-link d-flex align-items-center justtify-content-center ${
                 session ? "d-none" : "d-none d-lg-block"
               }`}
               text="Log in"
@@ -39,7 +39,7 @@ export default function Header() {
               url="/login"
             />
             <AppButton
-              className={`btn-primary d-flex align-items-center justtify-content-center ${
+              className={`btn-menu btn-primary d-flex align-items-center justtify-content-center ${
                 session ? "d-none" : ""
               }`}
               text="Create account"
@@ -47,7 +47,7 @@ export default function Header() {
               url="/createAccount"
             />
             <AppButton
-              className={`btn-primary d-flex align-items-center justify-content-center ${
+              className={`btn-menu btn-primary d-flex align-items-center justify-content-center ${
                 !session ? "d-none" : ""
               }`}
               text="Create Post"
