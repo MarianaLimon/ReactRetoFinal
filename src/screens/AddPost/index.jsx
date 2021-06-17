@@ -34,7 +34,7 @@ export default function AddPost(props) {
     event.preventDefault();
 
     try {
-      const duration = "5";
+      const duration = "5 min";
       const userId = localStorage.getItem("id");
 
       const newPost = {
@@ -47,7 +47,7 @@ export default function AddPost(props) {
       };
 
       await postPost(newPost);
-      //history.push("/");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
