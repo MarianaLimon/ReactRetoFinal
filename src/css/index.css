@@ -77,5 +77,16 @@ ul {
 }
 
 .img-profile {
-  width: 35px;
+  width: 40px;
+  height: 40px;
+}
+
+
+.btn-commit{
+  background-color: #323ebe;
+  color: white;
+}
+.area-commits{
+  width: 100%;
+  margin-left: 5px;
 }

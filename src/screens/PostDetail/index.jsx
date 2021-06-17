@@ -147,18 +147,18 @@ export default function PostDetail() {
           <h2 className="font-weight-bold m-0 my-auto">
             Discussion (<span className="count-replies">{replies.length}</span>)
           </h2>
-          <div className="form-group mb-2">
+          <div className="form-group mt-2">
             <button
-              className="btn-outline-suscribe rounded btn-save-replie "
+              className="btn-outline-suscribe rounded btn-save-replie btn btn-commit"
               type="submit"
               disabled={!userComment}
             >
-              Suscribe
+              Send
             </button>
           </div>
         </div>
-        <div className="w-100 d-flex flex-row justify-content-between mb-3">
-          <div className="w-10">
+        <div className="d-flex flex-row mb-3 mx-3">
+          <div className="">
             <img
               src={userLogged.userPic}
               alt={userLogged.userName}
@@ -166,12 +166,12 @@ export default function PostDetail() {
             />
           </div>
 
-          <div className="form-group mb-2">
+          <div className="form-group mb-2 area-commits">
             <textarea
               id="post-reply"
               placeholder="Add to the discussion"
               rows="2"
-              className="w-70 rounded"
+              className="rounded w-100"
               onChange={(event) => setUserComment(event.target.value)}
               value={userComment}
             />
