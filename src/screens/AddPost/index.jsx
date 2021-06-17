@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useHistory } from "react-router";
 
@@ -16,6 +16,8 @@ import $ from "jquery";
 import { postPost } from "../../services";
 
 export default function AddPost(props) {
+  const [session, setSession] = useState(false);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [coverUrl, setCoverUrl] = useState("");
@@ -24,12 +26,16 @@ export default function AddPost(props) {
 
   const history = useHistory();
 
+  useEffect(async () => {
+    localStorage.getItem("token") ? setSession(true) : history.push("/login");
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const duration = "5";
-      const userId = "123456789";
+      const duration = "5 min";
+      const userId = localStorage.getItem("id");
 
       const newPost = {
         title,
@@ -39,6 +45,7 @@ export default function AddPost(props) {
         duration,
         userId,
       };
+
       await postPost(newPost);
       history.push("/");
     } catch (error) {
