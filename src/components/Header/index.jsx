@@ -47,7 +47,7 @@ export default function Header() {
               url="/createAccount"
             />
             <AppButton
-              className={`btn-menu btn-primary d-flex align-items-center justify-content-center ${
+              className={`create_btn btn-menu btn-primary d-flex align-items-center justify-content-center ${
                 !session ? "d-none" : ""
               }`}
               text="Create Post"
